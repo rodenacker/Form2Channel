@@ -1,0 +1,17 @@
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+<path fill="#0D47A1" d="M465.557,0h-119.89L256,10.001L245.333,256L256,512h209.557V0z"/>
+<path fill="#0D47A1" d="M46.443,0v512H256V10.001L166.667,0H46.443z"/>
+<path fill="#FFFFFF" d="M241.616,481.213L166.333,428.1l37.482-26.444l37.801,26.669l75.496-53.265l37.479,26.445L241.616,481.213z"
+	/>
+<path fill="#FDAE02" d="M345.667,0H256l-21.333,11.747L256,21.75h89.667V0z"/>
+<path fill="#FDCB02" d="M166.333,0H256v21.75h-89.667V0z"/>
+<path fill="#FFFFFF" d="M378.583,129.177V92.5H214.991l-14.226,18.339l14.226,18.338H378.583z"/>
+<path fill="#FFFFFF" d="M378.583,207.422v-36.677H214.991l-14.226,18.339l14.226,18.338H378.583z"/>
+<path fill="#FFFFFF" d="M378.583,285.667v-36.678H214.991l-14.226,18.339l14.226,18.339H378.583z"/>
+<g>
+	<path fill="#FFFFFF" d="M133.416,92.5h81.575v36.677h-81.575V92.5z"/>
+	<path fill="#FFFFFF" d="M133.416,170.745h81.575v36.677h-81.575V170.745z"/>
+	<path fill="#FFFFFF" d="M133.416,248.989h81.575v36.678h-81.575V248.989z"/>
+</g>
+</svg>

@@ -1,0 +1,401 @@
+<!doctype html>
+<html>
+<head>
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZFRQM89EP"></script>
+   <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'G-7ZFRQM89EP');
+   </script>
+<meta charset="utf-8">
+<title>Form2Channel - Send your form anywhere</title>
+<link rel="icon" href="images/favicon.svg" type="image/svg">
+<meta name="description" content="Send the results of form submissions to a GoogleSheet, an email address, a Slack Channel or a Telegram account. Just host a static form and sign your page up at Form2Channel.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=1">
+</head>
+<body class="pages">
+<div class="wrapper">
+    <div class="lefttopgutter"></div>
+    <div class="topbar">
+        <div class="logo">
+            <div><a href="https://linx.software" target="_blank"><img src="images/built-with-linx.svg"></a></div>
+            <div>Form2Channel</div>
+        </div>
+        <div class="menu">
+            <div><a href="docs.html">Documentation</a></div>
+            <div><a href="contact.html">Contact</a></div>
+            <div><a href="license.html">License</a></div>
+        </div>
+    </div>
+    <div class="righttopgutter"></div>
+    <div class="leftgutter"></div>
+    <div class="content">
+        <div class="tablewrapper">
+            <h2>Your Pages</h2>
+            <a href="#" class="addformbutton button">Register Page</a>
+            <table id="pagesTable">
+                <thead>
+                    <tr>
+                        <th>Page</th>
+                        <th>Method</th>
+                        <th>Info</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="pagesTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="sidebar">
+        <div class="sidebarwrapper">
+            <div class="sidebarwrappercontent">
+                <h2>Getting started</h2>
+                <ol>
+                    <li>Create an html form in your favourite html editor<br>&lt;form class="form2channel"&gt;</li>
+                    <li>Add a link to our JS file on the form page<br>&lt;script src=&quot;//form2channel.com/js/form2channel.js&quot;&gt;&lt;/script&gt;</li>
+                    <li>Upload the page to your server</li>
+                    <li><a href="#" class="addformbutton">Register your page</a></li>
+                </ol>
+                <div><a href="docs.html" class="link">Read the documentation for more options</a></div>
+            </div>
+            <img src="images/setup.svg" width="344" height="auto">
+        </div>
+    </div>
+    <div class="rightgutter"></div>
+</div>
+<div id="addformwrapper" class="formwrapper">
+    <form id="addform">
+        <h2>Register Page</h2>
+        <div class="formField">
+            <span>PageUrl <img src="images/question.svg" width="14" height="14" title="Full URL of a page with a form. For example domain.com/form.html"></span>
+            <input name="pageurl" class="pageurl">
+        </div>
+        <div class="formField">
+            <span>Channel <img src="images/question.svg" width="14" height="14" title="Check out the docs for Slack and Telegram setup info"></span>
+            <select name="method" class="method">
+                <option value="googlesheets">Google Sheets</option>
+                <option value="email">Email</option>
+                <option value="slack">Slack</option>
+                <option value="telegram">Telegram</option>
+                <option value="http">HTTP (raw Json)</option>
+            </select>
+        </div>
+        <div class="methodInfo">
+            <p><strong>Receiver Info</strong></p>
+            <div class="formField">
+                <span>Email <img src="images/question.svg" width="14" height="14" title="Email where form submissions will be sent"></span>
+                <input name="email" class="email">
+            </div>
+            <div class="formField">
+            <span>Slack Webhook <img src="images/question.svg" width="14" height="14" title="Check out the docs page for setup info"></span>
+                <input name="slack" class="slack">
+            </div>
+            <div class="formField">
+            <span>Telegram ChatID <img src="images/question.svg" width="14" height="14" title="Check out the docs page for setup info"></span>
+                <input name="telegram" class="telegram">
+            </div>
+            <div class="formField">
+            <span>Http <img src="images/question.svg" width="14" height="14" title="A REST API or http address to receive a posted Json-formatted list. Check out the docs page for more"></span>
+                <input name="http" class="http">
+            </div>
+            <button type="submit">Save</button><div class="errorMsg"></div>
+        </div>
+    </form>
+</div>
+<div id="editformwrapper" class="formwrapper">
+    <form id="editform">
+        <h2>Update Page</h2>
+        <div class="formField">
+            <span>PageUrl 
+                <img src="images/question.svg" width="14" height="14" title="Full URL of a page with a form. For example domain.com/form.html">
+                <input type="hidden" name="pageurl" class="pageurl">
+            </span>
+            <span id="pageurldisplay"></span>
+        </div>
+        <div class="formField">
+            <span>Channel <img src="images/question.svg" width="14" height="14" title="Check out the docs for Slack and Telegram setup info"></span>
+            <select name="method" class="method">
+                <option value="googlesheets">GoogleSheets</option>
+                <option value="email">Email</option>
+                <option value="slack">Slack</option>
+                <option value="telegram">Telegram</option>
+                <option value="http">HTTP (raw Json)</option>
+            </select>
+        </div>
+        <div class="methodInfo">
+            <p><strong>Receiver Info</strong></p>
+            <div class="formField">
+                <span>Email <img src="images/question.svg" width="14" height="14" title="Email where form submissions will be sent"></span>
+                <input name="email" class="email">
+            </div>
+            <div class="formField">
+            <span>Slack Webhook <img src="images/question.svg" width="14" height="14" title="Check out the docs page for setup info"></span>
+                <input name="slack" class="slack">
+            </div>
+            <div class="formField">
+            <span>Telegram ChatID <img src="images/question.svg" width="14" height="14" title="Check out the docs page for setup info"></span>
+                <input name="telegram" class="telegram">
+            </div>
+            <div class="formField">
+            <span>Http <img src="images/question.svg" width="14" height="14" title="A REST API or http address to receive a posted Json-formatted list. Check out the docs page for more"></span>
+                <input name="http" class="http">
+            </div>
+            <button type="submit">Save</button><div class="errorMsg"></div>
+        </div>
+    </form>
+</div>
+<div id="resetformwrapper" class="formwrapper">
+    <form id="resetform">
+    <h2>Reset password</h2>
+    <div class="formField">
+        <span>New Password</span>
+        <input name="resetpassword" type="password">
+    </div>
+    <div class="formField">
+        <span>Confirm Password</span>
+        <input name="resetpasswordconfirm" type="password">
+    </div>
+    <button type="submit">Reset Password</button>
+    <span id="resetMessage" class="errorMsg"></span>
+    </form>
+</div>
+<script src="js/index.js?v=2"></script>
+<script>
+fetchPages();
+setLinks();
+document.getElementById("addform").addEventListener("submit", function(e){
+    resetValidations();
+    validator(e,document.getElementById("addform"));
+});
+document.getElementById("editform").addEventListener("submit", function(e){
+    resetValidations();
+    validator(e,document.getElementById("editform"));
+});
+const searchString = new URLSearchParams(location.search);
+const verify = searchString.getAll('verify').toString();
+if (verify !== ""){
+    window.history.pushState("", document.title, window.location.href.replace('&verify=true',''));
+    postData(linxapi + "verifyemail", verify)
+        .then(data => {
+            showMessageBar(data.Message);
+        })
+        .catch((error) => {
+            console.log(error)
+            showMessageBar(error);
+        });
+}
+const reset = searchString.getAll('reset').toString();
+if (reset !== ""){
+    window.history.pushState("", document.title, window.location.href.replace('&reset=true',''));
+    showPopup(document.getElementById("resetformwrapper"));
+    document.getElementById("resetform").addEventListener("submit", function(e){
+        e.preventDefault();
+        if ((document.getElementsByName("resetpassword")[0].value === document.getElementsByName("resetpasswordconfirm")[0].value)&&(document.getElementsByName("resetpassword")[0].value !== "")) {
+            const el = this;
+            showLoader(el);
+            postData(linxapi + "resetpassword", {"Password": document.getElementsByName("resetpassword")[0].value})
+            .then(data => {
+                showMessageBar(data.Message);
+                removeLoader(el);
+                hidePopup(document.getElementById("resetformwrapper"));
+            })
+            .catch((error) => {
+                console.log(error)
+                document.getElementById("resetMessage").innerHTML = error;
+                removeLoader(el);
+            });
+        } else {
+            document.getElementById("resetMessage").innerHTML = "The passwords do not match";
+        }
+    });
+}
+function setLinks(){
+    let arrAddLink = document.getElementsByClassName("addformbutton");
+    for (i=0;i<arrAddLink.length;i++) {
+        arrAddLink[i].addEventListener("click", function(){
+            resetForms();
+            showPopup(document.getElementById("addformwrapper"));
+        });
+    }
+}
+function validator(e,form){
+    e.preventDefault();
+    let errorMsg = form.querySelector('.errorMsg');
+    const method = form.elements["method"];
+    if (form.elements["pageurl"].value === "") {
+        errorMsg.innerHTML = "Enter a page URL";
+        form.elements["pageurl"].classList.add("fieldError");
+    } else if (method.value === "") {
+        errorMsg.innerHTML = "Select a method";
+        method.classList.add("fieldError");
+    } else if ((form.elements["email"].value === "")&&(method.value === "email")) {
+        errorMsg.innerHTML = "Enter an email address";
+        form.elements["email"].classList.add("fieldError");
+    } else if ((form.elements["http"].value === "")&&(method.value === "http")) {
+        errorMsg.innerHTML = "Enter an http address";
+        form.elements["http"].classList.add("fieldError");
+    } else if ((form.elements["slack"].value === "")&&(method.value === "slack")) {
+        errorMsg.innerHTML = "Enter a Slack webhook";
+        form.elements["slack"].classList.add("fieldError");
+    } else if ((form.elements["telegram"].value === "")&&(method.value === "telegram")) {
+        errorMsg.innerHTML = "Enter a Telegram chat ID";
+        form.elements["telegram"].classList.add("fieldError");
+    } else if (isNaN(form.elements["telegram"].value)) {
+        errorMsg.innerHTML = "The Telegram chat ID must be a number";
+        form.elements["telegram"].classList.add("fieldError");
+    } else if ((form.elements["email"].value === "")&&(method.value === "googlesheets")) {
+        errorMsg.innerHTML = "Enter an email address";
+        form.elements["email"].classList.add("fieldError");
+    } else {
+        showLoader(form);
+        let pageData = {"PageUrl": form.elements["pageurl"].value, "Email": form.elements["email"].value, "Slack": form.elements["slack"].value, "Telegram": form.elements["telegram"].value, "Http": form.elements["http"].value, "Method": form.elements["method"].value};
+        postData(linxapi + 'page', pageData)
+            .then(data => {
+            showMessageBar(data.Status,true);
+            resetForms();
+            removeLoader(form);
+            fetchPages();
+        })
+        .catch((error) => {
+            console.log(error)
+            removeLoader(form);
+            showMessageBar(error);
+        });
+    }
+}
+function resetForms(){
+    document.getElementById("addformwrapper").classList.remove("show");
+    document.getElementById("editformwrapper").classList.remove("show");
+    const addform = document.getElementById("addform");
+    const editform = document.getElementById("editform");
+    for (i=0;i<addform.elements.length;i++) {
+        addform.elements[i].value = "";
+    }
+    for (i=0;i<editform.elements.length;i++) {
+        editform.elements[i].value = "";
+    }
+    resetValidations();
+    document.getElementsByClassName("method")[0].value = "googlesheets";
+    document.getElementsByClassName("method")[1].value = "googlesheets";
+}
+function fetchPages(){
+    const el = document.getElementById("pagesTable");
+    showLoader(el);
+    let pagesData = {};
+    postData(linxapi + 'getpages', {})
+        .then(data => {
+            let tablebody = document.getElementById('pagesTableBody');
+            if (data.length > 0) {
+                tablebody.innerHTML = "";
+                for (i=0;i<data.length;i++) {
+                    let newRow = tablebody.insertRow();
+                    
+                    let pageUrlCell = newRow.insertCell();
+                    var pageLink = document.createElement("a");
+                    pageLink.setAttribute("href", "//" + data[i].PageUrl);
+                    pageLink.setAttribute("target", "_blank");
+                    let txtPage = document.createTextNode(data[i].PageUrl);
+                    pageLink.appendChild(txtPage);
+                    pageUrlCell.appendChild(pageLink);
+
+                    let methodCell = newRow.insertCell();
+                    methodCell.innerHTML = data[i].Method;
+                    let infoCell = newRow.insertCell();
+                    if ((data[i].Method === "GoogleSheets") || (data[i].Method === "Email")){
+                        infoCell.innerHTML = data[i].Email;
+                    } else if (data[i].Method === "Slack") {
+                        infoCell.innerHTML = data[i].Slack;
+                    }  else if (data[i].Method === "Telegram") {
+                        infoCell.innerHTML = data[i].Telegram;
+                    }
+                    infoCell.setAttribute("class","infoCell");
+                    
+                    let editCell = newRow.insertCell();
+                    let editLink = document.createElement("span");
+                    editLink.classList.add("editformlink");
+                    editLink.classList.add("link");
+                    editLink.setAttribute("item", data[i].PageUrl);
+                    editLink.innerHTML = '<img src="images/edit.svg">';
+                    editCell.appendChild(editLink);
+                    editCell.addEventListener("click", function(){
+                        showEditForm(editLink.getAttribute("item"));
+                    });
+                    
+                    let deleteCell = newRow.insertCell();
+                    let deleteLink = document.createElement("span");
+                    deleteLink.classList.add("deletepage");
+                    deleteLink.classList.add("link");
+                    deleteLink.setAttribute("item", data[i].PageUrl);
+                    deleteLink.innerHTML = '<img src="images/delete.svg">';
+                    deleteCell.appendChild(deleteLink);
+                    deleteCell.addEventListener("click", function(){
+                        deletePage(deleteLink.getAttribute("item"));
+                    });
+                }
+            } else {
+                tablebody.innerHTML = "<tr><td colspan='5'>You have no pages. <a href='#' class='addformbutton'>Add one now</a></td></tr>";
+                setLinks();
+            }
+            removeLoader(el);
+        })
+        .catch((error) => {
+            removeLoader(el);
+            console.log(error)
+            showMessageBar(error);
+        });
+}
+function showEditForm(editurl){
+    resetValidations();
+    const editformwrapper = document.getElementById("editformwrapper");
+    const editform = document.getElementById("editform");
+    let pageData = {"PageUrl": editurl};
+    showLoader(editform);
+    postData(linxapi + 'getpage', pageData)
+        .then(data => {
+            document.getElementById("pageurldisplay").innerHTML = data.PageUrl;
+            editform.elements["pageurl"].value = data.PageUrl;
+            editform.elements["http"].value = data.Http;
+            editform.elements["email"].value = data.Email;
+            editform.elements["slack"].value = data.Slack;
+            editform.elements["method"].value = data.Method.toLowerCase();
+            let tgram = data.Telegram;
+            if (tgram === "0") {
+                tgram = "";
+            }
+            editform.elements["telegram"].value = tgram;
+            removeLoader(editform);
+            showPopup(editformwrapper);
+        })
+        .catch((error) => {
+            console.log(error)
+            showMessageBar(error);
+            removeLoader(editform);
+        });
+}
+function deletePage(pageurl){
+    if (confirm("Are you sure?")) {
+        const el = document.getElementById("pagesTable");
+        showLoader(el);
+        let pageData = {"PageUrl": pageurl};
+        postData(linxapi + 'deletepage', pageData)
+        .then(data => {
+            showMessageBar(data.Message,true);
+            removeLoader(el);
+            fetchPages();
+        })
+        .catch((error) => {
+            console.log(error)
+            showMessageBar(error);
+            removeLoader(el);
+        });
+    }
+}
+</script>
+</body>
+</html>

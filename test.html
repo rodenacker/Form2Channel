@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<link rel="icon" href="images/favicon.svg" type="image/svg">
+<meta charset="utf-8">
+<title>Form2Channel Sample Form</title>
+<style>
+body, input, textarea, select {
+      font-family:sans-serif;
+      font-size:14px;
+}
+span, input, textarea, select, button, label {
+      display:block;
+}
+input, textarea, select {
+      margin:0 0 8px 0;
+}
+label > input {
+      display:inline-block;
+}
+</style>
+</head>
+<body>
+<script src="js/form2channel.js"></script>
+<form class="form2channel">
+  TextField: 
+  <input type="text" name="TextField" value="TextValue">
+  TextArea:
+  <textarea name="TextArea">TextArea Text</textarea>
+  DropDown: 
+  <select name="DropDown1"><option value="SelectedOptionVal">SelectedOption</option></select>
+  <select name="DropDown2"><option>OptionText</option></select>
+  <select name="DropDown3"><option></option><option>Option</option></select>
+  <label>CheckBox1: <input name="CheckBox1" type="checkbox" value="checked" checked></label>
+  <label>CheckBox2: <input name="CheckBox2" type="checkbox"></label>
+  <label>CheckBox3: <input name="CheckBox3" type="checkbox" checked></label>
+  Radio1: 
+  <label><input name="Radio1" type="radio" value="checked" checked> Checked</label>
+  <label><input name="Radio1" type="radio" value="unchecked"> Unchecked</label>
+  Radio2: 
+  <label><input name="Radio2" type="radio" checked> Checked</label>
+  <label><input name="Radio2" type="radio"> Unchecked</label>
+  <button type="Submit">Send</button>
+</form>
+</body>
+</html>

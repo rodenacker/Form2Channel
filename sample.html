@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="images/favicon.svg" type="image/svg">
+<title>Form2Channel Sample Form</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+body {
+    display:grid;
+    grid-template-columns: 160px 1fr;
+    grid-gap: 40px;
+    margin-bottom:6px;
+}
+body, input, textarea, select {
+	font-family:Roboto, sans-serif;
+      font-size:14px;
+}
+span, input, textarea, select, button, label {
+      display:block;
+}
+input, textarea, select {
+      margin:0 0 8px 0;
+}
+label > input {
+      display:inline-block;
+}
+</style>
+</head>
+<body>
+<form class="form2channel">
+      TextField: 
+      <input type="text" name="TextField" value="TextValue">
+      TextArea:
+      <textarea name="TextArea">TextArea Text</textarea>
+      DropDown: 
+      <select name="DropDown1">
+            <option value="SelectedOptionVal">SelectedOption</option>
+      </select>
+      <select name="DropDown2">
+            <option>OptionText</option>
+      </select>
+      <select name="DropDown3">
+            <option></option>
+            <option>Option</option>
+      </select>
+      <label>CheckBox1: <input name="CheckBox1" type="checkbox" value="checked" checked></label>
+      <label>CheckBox2: <input name="CheckBox2" type="checkbox"></label>
+      <label>CheckBox3: <input name="CheckBox3" type="checkbox" checked></label>
+      Radio1: 
+      <label><input name="Radio1" type="radio" value="checked" checked> Checked</label>
+      <label><input name="Radio1" type="radio" value="unchecked"> Unchecked</label>
+      Radio2: 
+      <label><input name="Radio2" type="radio" checked> Checked</label>
+      <label><input name="Radio2" type="radio"> Unchecked</label>
+      <button type="Submit">Send</button>
+</form>
+<pre>
+&lt;form class=&quot;form2channel&quot;&gt;
+  TextField: 
+  &lt;input type=&quot;text&quot; name=&quot;TextField&quot; value=&quot;TextValue&quot;&gt;
+  TextArea:
+  &lt;textarea name=&quot;TextArea&quot;&gt;TextArea Text&lt;/textarea&gt;
+  DropDown: 
+  &lt;select name=&quot;DropDown1&quot;&gt;
+    &lt;option value=&quot;SelectedOptionVal&quot;&gt;SelectedOption&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;select name=&quot;DropDown2&quot;&gt;
+    &lt;option&gt;OptionText&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;select name=&quot;DropDown3&quot;&gt;
+    &lt;option&gt;&lt;/option&gt;
+    &lt;option&gt;Option&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;label&gt;CheckBox1: &lt;input name=&quot;CheckBox1&quot; type=&quot;checkbox&quot; value=&quot;checked&quot; checked&gt;&lt;/label&gt;
+  &lt;label&gt;CheckBox2: &lt;input name=&quot;CheckBox2&quot; type=&quot;checkbox&quot;&gt;&lt;/label&gt;
+  &lt;label&gt;CheckBox3: &lt;input name=&quot;CheckBox3&quot; type=&quot;checkbox&quot; checked&gt;&lt;/label&gt;
+  Radio1: 
+  &lt;label&gt;&lt;input name=&quot;Radio1&quot; type=&quot;radio&quot; value=&quot;checked&quot; checked&gt; Checked&lt;/label&gt;
+  &lt;label&gt;&lt;input name=&quot;Radio1&quot; type=&quot;radio&quot; value=&quot;unchecked&quot;&gt; Unchecked&lt;/label&gt;
+  Radio2: 
+  &lt;label&gt;&lt;input name=&quot;Radio2&quot; type=&quot;radio&quot; checked&gt; Checked&lt;/label&gt;
+  &lt;label&gt;&lt;input name=&quot;Radio2&quot; type=&quot;radio&quot;&gt; Unchecked&lt;/label&gt;
+  &lt;button type=&quot;Submit&quot;&gt;Send&lt;/button&gt;
+&lt;/form&gt;
+&lt;script src=&quot;//form2channel.com/js/form2channel.js&quot;&gt;&lt;/script&gt;
+</pre>
+<script src="js/form2channel.js"></script>
+</body>
+</html>
