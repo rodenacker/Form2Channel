@@ -48,12 +48,9 @@
                 <li>Create an html form in your favourite html editor<br>&lt;form class="form2channel"&gt;</li>
                 <li>Add a link to our JS file on the form page<br>&lt;script src=&quot;//form2channel.com/js/form2channel.js&quot;&gt;&lt;/script&gt;</li>
                 <li>Upload the page to your server</li>
-                <li>Register your page with us</li>
             </ol>
-            <p>The form2channel.js file adds an event listener for the submit event of all forms that have the <code>form2channel</code> class.</p>
-            <p>When a form with the class <code>form2channel</code> is submitted, the event listener calls an async function called <code>form2channel</code></p>
             <p>Hit F12 to see the result of the submission in the developer console.</p>
-            <p><a href="sample.html" target="_blank">Check out an example form</a></p>
+            <p><a href="sample.html" target="_blank">Copy an example form</a></p>
             <hr>
             <h2 id="javascriptsubmit">Javascript Submit</h2>
             <p>If you want to validate the form or give users feedback on the status of their submission, you can submit the form using Javascript. </p>
@@ -67,7 +64,7 @@
             //A success boolean: data.Success
             console.log(data.Message);
         });</pre>
-            <p><a href="sample_advanced.html" target="_blank">Check out an example form</a> or check out how we use this method on our <a href="contact.html">contact us</a> page</p>
+            <p><a href="sample_advanced.html" target="_blank">Example form</a>. We use this method on our <a href="contact.html">contact us</a> page</p>
         <hr>
             <div id="methodInstructions">
                 <h2 id="slacksetup">Slack setup</h2>
@@ -77,22 +74,25 @@
                         <li>Add an app to a workspace</li>
                         <li>Activate "Incoming Webhooks"</li>
                         <li>Select "Add new webhook to workspace" (bottom)</li>
-                        <li>Use the Webhook URL to register your page with us</li>
+                        <li>Add a hidden input tag to your form. The name must be formto_slack and the value your Webhook URL</li>
                     </ol>
                     Slack Docs: 
                     <a href="https://api.slack.com/start/overview#creating" target="_blank">https://api.slack.com/start/overview#creating</a><br>
+            <p><a href="sample.html" target="_blank">Example form</a></p>
                     <hr>
                     <h2 id="telegramsetup">Telegram Setup</h2>
                     <p>To get a Telegram ChatID</p>
                     <ol>
                         <li>Open <a href="https://t.me/form2channelbot" target="_blank">this page</a> on your phone and click the link</li>
                         <li>Send /start to <a href="tg://resolve?domain=form2channelbot">@Form2ChannelBot</a> to get a ChatID</li>
-                        <li>Use the ChatID to register your page with us</li>
+                        <li>Add a hidden input tag to your form. The name must be formto_telegram and the value your Chat ID</li>
                     </ol>
+            <p><a href="sample.html" target="_blank">Example form</a></p>
                     <hr>
                     <h2 id="httpinfo">Http Info</h2>
                     Provide an http address that accepts a Json array of objects (key/value pairs). Example Json:
 <pre>    [
+        {"key":"formto_email","value":"me@email.address"},
         {"key":"FirstName","value":"John"},
         {"key":"LastName","value":"Lennon"},
         {"key":"Country","value":"United Kingdom"},
@@ -104,8 +104,6 @@
             <h2 id="apidirect">Post data directly to our REST API</h2>
             <p>You can skip the form altogether and submit your data  directly to our API as a Json object</p>
             <ol>
-              <li>Signup to Form2Channel</li>
-              <li>Register a page (enter any unique identifyer in the PageUrl field)</li>
               <li>Call our FormTo API
                 <ul>
                   <li>URI: https://showcase.api.linx.twenty57.net/Form2Channel?PageUrl=[your unique page identifyer]</li>
@@ -115,6 +113,7 @@
                 </li>
               </li>
         <pre>    [
+                {"key":"formto_email","value":"me@email.address"},
                 {"key":"FirstName","value":"John"},
                 {"key":"LastName","value":"Lennon"},
                 {"key":"Country","value":"United Kingdom"},

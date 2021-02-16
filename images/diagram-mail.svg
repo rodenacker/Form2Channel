@@ -25,7 +25,7 @@
 .arrow1 {
 	opacity:0;
 	transform: translateX(-10px);
-    animation: arrow1sani 1s linear forwards;
+    animation: arrow1sani 0.5s linear forwards;
 }
 @keyframes arrow1sani {
     10% {
@@ -38,7 +38,7 @@
 .arrow2 {
 	opacity:0;
 	transform: translateX(-10px);
-    animation: arrow2sani 1s linear forwards;
+    animation: arrow2sani 0.5s linear forwards;
 }
 @keyframes arrow2sani {
     10% {
@@ -51,7 +51,7 @@
 .arrow3 {
 	opacity:0;
 	transform: translateX(-10px);
-    animation: arrow3sani 1s linear forwards;
+    animation: arrow3sani 0.5s linear forwards;
 }
 @keyframes arrow3sani {
     10% {
@@ -64,7 +64,7 @@
 .arrow4 {
 	opacity:0;
 	transform: translateX(-10px);
-    animation: arrow4sani 1s linear forwards;
+    animation: arrow4sani 0.5s linear forwards;
 }
 @keyframes arrow4sani {
     10% {
@@ -172,36 +172,36 @@
 	animation-delay: .4s;
 }
 .linecover2 {
-	animation-delay: .8s;
+	animation-delay: .6s;
 }
 .linecover3 {
-	animation-delay: 1.2s;
+	animation-delay: 1s;
 }
 .linecover4 {
-	animation-delay: 1.6s;
+	animation-delay: 1.3s;
 }
 .arrow1 {
-	animation-delay: 2s;
+	animation-delay: 1.7s;
 }
 .arrow2 {
-	animation-delay: 2.4s;
+	animation-delay: 1.9s;
 }
 .arrow3 {
-	animation-delay: 2.8s;
+	animation-delay: 2.1s;
 }
 .arrow4 {
-	animation-delay: 3.2s;
+	animation-delay: 2.3s;
 }
 .Linx, 
 .cog1, 
 .cog2 {
-	animation-delay: 3.4s;
+	animation-delay: 2.5s;
 }
 .line {
-	animation-delay: 4.4s;
+	animation-delay: 3s;
 }
 .recipient {
-	animation-delay: 5s;
+	animation-delay: 3.5s;
 }
 </style>
 </defs>

@@ -1,4 +1,3 @@
-//const linx = "http://localhost:5655/?PageUrl="+window.location.href;
 const linx = "https://showcase.api.linx.twenty57.net/Form2Channel?PageUrl="+window.location.href;
 document.addEventListener("DOMContentLoaded", function(){
     const forms = document.getElementsByClassName("form2channel");

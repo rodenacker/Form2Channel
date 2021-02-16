@@ -17,87 +17,105 @@
     <meta charset="utf-8" />
     <title>Form2Channel - Send your form anywhere</title>
     <link rel="icon" href="images/favicon.svg" type="image/svg" />
-    <meta name="description" content="Send the results of form submissions to a GoogleSheet, an email address, a Slack Channel or a Telegram account. Just host a static form and sign your page up at Form2Channel."/>
+    <meta
+      name="description"
+      content="Send the results of form submissions to a GoogleSheet, an email address, a Slack Channel or a Telegram account. Just host a static form and sign your page up at Form2Channel."
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&family=Roboto:wght@300;400;700&family=Arvo&display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&family=Roboto:wght@300;400;700&family=Arvo&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/styles.css?v=1" />
   </head>
   <body class="template">
     <div class="wrapper">
       <div class="lefttopgutter"></div>
       <div class="topbar">
-        <a href="#" onclick="history.back();"><img src="images/arrow-down-circle.svg"/></a>
+        <a href="#" onclick="history.back();"
+          ><img src="images/arrow-down-circle.svg"
+        /></a>
         <h1>Contact Us</h1>
       </div>
       <div class="righttopgutter"></div>
       <div class="leftgutter"></div>
       <div class="content">
         <form class="contactForm form2channel">
-            <p></p>
-            <div class="formField">
-                <span>Name</span>
-                <input name="name">
-            </div>
-            <div class="formField">
-                <span>Email</span>
-                <input name="email">
-            </div>
-            <div class="formField">
-                <span>Message</span>
-                <textarea name="message"></textarea>
-            </div>
-            <button id="sendButton" type="button">Send</button>
-            <div id="errorMsg"></div>
+          <input
+            type="hidden"
+            name="formto_email"
+            value="formtochannel@gmail.com"
+          />
+          <p></p>
+          <div class="formField">
+            <span>Name</span>
+            <input name="name" />
+          </div>
+          <div class="formField">
+            <span>Email</span>
+            <input name="email" />
+          </div>
+          <div class="formField">
+            <span>Message</span>
+            <textarea name="message"></textarea>
+          </div>
+          <button id="sendButton" type="button">Send</button>
+          <div id="errorMsg"></div>
         </form>
-    </div>
+      </div>
       <div class="rightgutter"></div>
     </div>
     <script src="js/index.js"></script>
     <script src="js/form2channel.js"></script>
     <script>
-        const sendButton = document.getElementById("sendButton");
-        sendButton.addEventListener("click", function(){
-            validateForm(document.forms[0]);
-        }, false);
-        function validateForm(form) {
-            const errorMsg = document.getElementById("errorMsg");
-            errorMsg.innerHTML = "";
-            const nameField = document.getElementsByName("name")[0];
-            nameField.classList.remove("fieldError");
-            const emailField = document.getElementsByName("email")[0];
-            emailField.classList.remove("fieldError");
-            const messageField = document.getElementsByName("message")[0];
-            messageField.classList.remove("fieldError");
-            let validated = true;
-            if (nameField.value === "") {
-                nameField.classList.add("fieldError");
-                errorMsg.innerHTML = errorMsg.innerHTML + "Please enter a name<br>";
-                validated = false;
-            }
-            if (emailField.value === "") {
-                emailField.classList.add("fieldError");
-                errorMsg.innerHTML = errorMsg.innerHTML + "Please enter an email address<br>";
-                validated = false;
-            }
-            if (messageField.value === "") {
-                messageField.classList.add("fieldError");
-                errorMsg.innerHTML = errorMsg.innerHTML + "Please enter a message";
-                validated = false;
-            }
-            if (validated) {
-              showLoader(form);
-              form2channel(form)
-              .then(data => {
-                showMessageBar(data.Message);
-                removeLoader(form);
-              })
-              .catch((error) => {
-                showMessageBar(error);
-                removeLoader(form);
-              });
-            }
+      const sendButton = document.getElementById("sendButton");
+      sendButton.addEventListener(
+        "click",
+        function () {
+          validateForm(document.forms[0]);
+        },
+        false
+      );
+      function validateForm(form) {
+        const errorMsg = document.getElementById("errorMsg");
+        errorMsg.innerHTML = "";
+        const nameField = document.getElementsByName("name")[0];
+        nameField.classList.remove("fieldError");
+        const emailField = document.getElementsByName("email")[0];
+        emailField.classList.remove("fieldError");
+        const messageField = document.getElementsByName("message")[0];
+        messageField.classList.remove("fieldError");
+        let validated = true;
+        if (nameField.value === "") {
+          nameField.classList.add("fieldError");
+          errorMsg.innerHTML = errorMsg.innerHTML + "Please enter a name<br>";
+          validated = false;
         }
+        if (emailField.value === "") {
+          emailField.classList.add("fieldError");
+          errorMsg.innerHTML =
+            errorMsg.innerHTML + "Please enter an email address<br>";
+          validated = false;
+        }
+        if (messageField.value === "") {
+          messageField.classList.add("fieldError");
+          errorMsg.innerHTML = errorMsg.innerHTML + "Please enter a message";
+          validated = false;
+        }
+        if (validated) {
+          showLoader(form);
+          form2channel(form)
+            .then((data) => {
+              showMessageBar(data.Message);
+              removeLoader(form);
+            })
+            .catch((error) => {
+              showMessageBar(error);
+              removeLoader(form);
+            });
+        }
+      }
     </script>
-</body>
+  </body>
 </html>

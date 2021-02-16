@@ -118,12 +118,6 @@ body {
   grid-row: row 2;
 }
 
-.pages .sidebar {
-  grid-column: col 4;
-  grid-row: row 2;
-  padding-left: 20px;
-}
-
 .landing .wrapper {
   -ms-grid-columns: [col] 1fr [col] 1fr [col] 200px [col] minmax(280px, 1fr) [col] 1fr;
       grid-template-columns: [col] 1fr [col] 1fr [col] 200px [col] minmax(280px, 1fr) [col] 1fr;
@@ -137,12 +131,21 @@ body {
 }
 
 .landing .content {
-  grid-column: col 2 / span 2;
+  grid-column: col 2 / span 3;
   grid-row: row 1;
+  margin-right: 60px;
+}
+
+.landing .content .contentwrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
 }
 
 .landing .content .contentcontainer {
-  max-width: 500px;
+  max-width: 100%;
+  margin-right: 20px;
 }
 
 .landing .content .contentcontainer a {
@@ -151,38 +154,16 @@ body {
 
 .landing .content .built-with-linx {
   float: right;
-  margin-top: -10px;
-}
-
-.landing .sidebar {
-  grid-column: col 4 / span 1;
-  grid-row: row 1 / span 2;
-  background-color: #1565c0;
-  -webkit-box-shadow: -10px 0px 10px 1px rgba(0, 0, 0, 0.2);
-          box-shadow: -10px 0px 10px 1px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.landing .sidebar .forms {
-  max-width: 200px;
-  position: fixed;
-}
-
-.landing .sidebar h2 {
-  color: white;
-  margin-bottom: 8px;
-}
-
-.landing .sidebar button {
-  background-color: white;
-  color: #0d47a1;
-  cursor: pointer;
+  margin-top: -14px;
+  padding-left: 20px;
 }
 
 .landing .rightgutter {
   grid-column: col 5 / span 1;
   grid-row: row 1 / span 2;
   background-color: #1565c0;
+  -webkit-box-shadow: -10px 0px 10px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: -10px 0px 10px 1px rgba(0, 0, 0, 0.2);
 }
 
 .landing .footergutter {
@@ -192,7 +173,7 @@ body {
 }
 
 .landing .footer {
-  grid-column: col 2 / span 2;
+  grid-column: col 2 / span 3;
   grid-row: row 2;
   background-color: #0d47a1;
   display: -webkit-box;
@@ -201,6 +182,9 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .landing .footer > div {
@@ -211,6 +195,11 @@ body {
 
 .landing .footer a {
   color: white;
+}
+
+.template li,
+.documentation li {
+  padding-bottom: 10px;
 }
 
 .template .content a,
@@ -358,21 +347,22 @@ button,
           justify-content: center;
 }
 
-.channelswrapper {
+#channelswrapper {
   text-align: center;
+  margin: 30px 15px 10px 0;
 }
 
 .channels {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   font-size: 12px;
-  gap: 50px;
+  gap: 40px;
 }
 
 .channels > div {
@@ -414,9 +404,10 @@ button,
   transition: opacity 1s;
   opacity: 1;
   height: 160px;
+  padding-left: 20px;
 }
 
-#diagram img {
+#diagram > img {
   width: 100%;
   height: 100%;
   max-width: 534px;
@@ -512,31 +503,6 @@ button,
 #methodInstructions .tabContent.active {
   display: block;
   margin-top: -1px;
-}
-
-.sidebarwrapper {
-  background-color: #1565c0;
-  display: inline-block;
-  border-radius: 12px;
-  margin-top: 20px;
-}
-
-.sidebarwrapper .sidebarwrappercontent {
-  padding: 10px;
-  font-size: 12px;
-  color: white;
-}
-
-.sidebarwrapper .sidebarwrappercontent li {
-  padding-bottom: 4px;
-}
-
-.sidebarwrapper .sidebarwrappercontent h2 {
-  color: white;
-}
-
-.sidebarwrapper .sidebarwrappercontent img {
-  margin-bottom: -4px;
 }
 
 /*forms*/
@@ -799,6 +765,15 @@ table td a {
 }
 
 /*Media Queries*/
+@media only screen and (max-width: 1700px) {
+  .landing .content {
+    margin-right: 30px;
+  }
+  .channels {
+    gap: 20px;
+  }
+}
+
 @media only screen and (max-width: 1279px) {
   .wrapper {
     -ms-grid-columns: ([col] 1fr)[1];
@@ -816,9 +791,16 @@ table td a {
   .content {
     grid-column: col 1 / span 1;
     grid-row: row 2;
+    padding: 20px;
+  }
+  .landing .content {
+    margin-right: 10px;
   }
   .msg {
     grid-column: col 1 / span 5;
+  }
+  .landing .content .built-with-linx {
+    margin-top: -20px;
   }
   .pages .wrapper {
     -ms-grid-columns: ([col] 1fr)[3];
@@ -837,10 +819,6 @@ table td a {
     grid-column: col 1 / span 2;
     grid-row: row 2;
   }
-  .pages .sidebar {
-    grid-column: col 3;
-    grid-row: row 2;
-  }
   .pages .menu {
     margin-right: 20px;
   }
@@ -854,13 +832,6 @@ table td a {
   }
   .landing .content .contentcontainer {
     max-width: 80%;
-  }
-  .landing .sidebar {
-    grid-column: col 3 / span 1;
-    grid-row: row 1 / span 2;
-  }
-  .landing .sidebar .forms {
-    position: static;
   }
   .landing .footer {
     grid-column: col 1 / span 2;
@@ -891,6 +862,15 @@ table td a {
     grid-column: col 1 / span 1;
     grid-row: row 1;
   }
+  .landing .content .contentwrapper {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .landing .content .contentcontainer:nth-child(1) {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
   .landing .content .contentcontainer {
     max-width: 100%;
   }
@@ -915,10 +895,6 @@ table td a {
   .pages .content {
     grid-column: col 1;
     grid-row: row 2;
-  }
-  .pages .sidebar {
-    grid-column: col 1;
-    grid-row: row 3;
   }
 }
 /*# sourceMappingURL=styles.css.map */

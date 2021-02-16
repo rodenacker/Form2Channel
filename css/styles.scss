@@ -98,11 +98,6 @@ body {
     grid-column: col 2 / span 2;
     grid-row: row 2;
   }
-  .sidebar {
-    grid-column: col 4;
-    grid-row: row 2;
-    padding-left: 20px;
-  }
 }
 .landing {
   .wrapper {
@@ -121,43 +116,31 @@ body {
     grid-row: row 1;
   }
   .content {
-    grid-column: col 2 / span 2;
+    grid-column: col 2 / span 3;
     grid-row: row 1;
+    margin-right: 60px;
+    .contentwrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
     .contentcontainer {
-      max-width: 500px;
+      max-width: 100%;
+      margin-right: 20px;
       a {
         color: $darkfontcolour;
       }
     }
     .built-with-linx {
       float: right;
-      margin-top: -10px;
-    }
-  }
-  .sidebar {
-    grid-column: col 4 / span 1;
-    grid-row: row 1 / span 2;
-    background-color: $lightbg;
-    box-shadow: -10px 0px 10px 1px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    .forms {
-      max-width: 200px;
-      position: fixed;
-    }
-    h2 {
-      color: white;
-      margin-bottom: 8px;
-    }
-    button {
-      background-color: white;
-      color: $darkfontcolour;
-      cursor: pointer;
+      margin-top: -14px;
+      padding-left: 20px;
     }
   }
   .rightgutter {
     grid-column: col 5 / span 1;
     grid-row: row 1 / span 2;
     background-color: $lightbg;
+    box-shadow: -10px 0px 10px 1px rgba(0, 0, 0, 0.2);
   }
   .footergutter {
     grid-column: col 1 / span 1;
@@ -165,11 +148,12 @@ body {
     background-color: #0d47a1;
   }
   .footer {
-    grid-column: col 2 / span 2;
+    grid-column: col 2 / span 3;
     grid-row: row 2;
     background-color: #0d47a1;
     display: flex;
     align-items: center;
+    justify-content: center;
     > div {
       display: inline-block;
       padding-left: 10px;
@@ -182,6 +166,9 @@ body {
 }
 .template,
 .documentation {
+  li {
+    padding-bottom: 10px;
+  }
   .content a {
     color: $darkfontcolour;
   }
@@ -294,15 +281,16 @@ button,
   align-items: center;
   justify-content: center;
 }
-.channelswrapper {
+#channelswrapper {
   text-align: center;
+  margin: 30px 15px 10px 0;
 }
 .channels {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   font-size: 12px;
-  gap: 50px;
+  gap: 40px;
   > div {
     display: inline-flex;
     flex-direction: column;
@@ -330,7 +318,8 @@ button,
   transition: opacity 1s;
   opacity: 1;
   height: 160px;
-  img {
+  padding-left: 20px;
+  > img {
     width: 100%;
     height: 100%;
     max-width: 534px;
@@ -405,26 +394,6 @@ button,
   .tabContent.active {
     display: block;
     margin-top: -1px;
-  }
-}
-.sidebarwrapper {
-  background-color: $lightbluefontcolour;
-  display: inline-block;
-  border-radius: 12px;
-  margin-top: 20px;
-  .sidebarwrappercontent {
-    padding: 10px;
-    font-size: 12px;
-    color: $lightfontcolour;
-    li {
-      padding-bottom: 4px;
-    }
-    h2 {
-      color: white;
-    }
-    img {
-      margin-bottom: -4px;
-    }
   }
 }
 
@@ -635,6 +604,14 @@ table {
   }
 }
 /*Media Queries*/
+@media only screen and (max-width: 1700px) {
+  .landing .content {
+    margin-right: 30px;
+  }
+  .channels {
+    gap: 20px;
+  }
+}
 @media only screen and (max-width: 1279px) {
   .wrapper {
     grid-template-columns: repeat(1, [col] 1fr);
@@ -650,9 +627,16 @@ table {
   .content {
     grid-column: col 1 / span 1;
     grid-row: row 2;
+    padding: 20px;
+  }
+  .landing .content {
+    margin-right: 10px;
   }
   .msg {
     grid-column: col 1 / span 5;
+  }
+  .landing .content .built-with-linx {
+    margin-top: -20px;
   }
   .pages {
     .wrapper {
@@ -670,10 +654,6 @@ table {
       grid-column: col 1 / span 2;
       grid-row: row 2;
     }
-    .sidebar {
-      grid-column: col 3;
-      grid-row: row 2;
-    }
     .menu {
       margin-right: 20px;
     }
@@ -689,13 +669,6 @@ table {
       grid-row: row 1;
       .contentcontainer {
         max-width: 80%;
-      }
-    }
-    .sidebar {
-      grid-column: col 3 / span 1;
-      grid-row: row 1 / span 2;
-      .forms {
-        position: static;
       }
     }
     .footer {
@@ -725,6 +698,12 @@ table {
     .content {
       grid-column: col 1 / span 1;
       grid-row: row 1;
+      .contentwrapper {
+        grid-template-columns: 1fr;
+      }
+      .contentcontainer:nth-child(1) {
+        order: 1;
+      }
       .contentcontainer {
         max-width: 100%;
       }
@@ -750,10 +729,6 @@ table {
     .content {
       grid-column: col 1;
       grid-row: row 2;
-    }
-    .sidebar {
-      grid-column: col 1;
-      grid-row: row 3;
     }
   }
 }

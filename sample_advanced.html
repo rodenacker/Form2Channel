@@ -1,44 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<link rel="icon" href="images/favicon.svg" type="image/svg">
-<title>Form2Channel Sample Form</title>
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-<style>
-body {
-    display:grid;
-    grid-template-columns: 160px 1fr;
-    grid-gap: 40px;
-    margin-bottom:6px;
-}
-body, input, textarea, select {
-	font-family:Roboto, sans-serif;
-      font-size:14px;
-}
-span, input, textarea, select, button, label {
-      display:block;
-}
-input, textarea, select {
-      margin:0 0 8px 0;
-}
-label > input {
-      display:inline-block;
-}
-</style>
-</head>
-<body>
-    <form>
-        Name
-        <input name="name">
-        <button id="submitButton" type="button">Submit</button>
-    </form>
-<pre>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="images/favicon.svg" type="image/svg" />
+    <title>Form2Channel Sample Form</title>
+    <style>
+      body {
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <pre>
 &lt;form&gt;
-    Name
-    &lt;input name=&quot;name&quot;&gt;
-    &lt;button id=&quot;submitButton&quot; type=&quot;button&quot;&gt;Submit&lt;/button&gt;
+&lt;input type=&quot;hidden&quot; name=&quot;formto_email&quot; value=&quot;me@email.address&quot;&gt;
+&lt;input type=&quot;hidden&quot; name=&quot;formto_googlesheets&quot; value=&quot;me@email.address&quot;&gt;
+&lt;input type=&quot;hidden&quot; name=&quot;formto_slack&quot; value=&quot;Your Slack Channel Webhook URL&quot;&gt;
+&lt;input type=&quot;hidden&quot; name=&quot;formto_telegram&quot; value=&quot;The chat ID the Form2Channel bot sent you&quot;&gt;
+&lt;input type=&quot;hidden&quot; name=&quot;formto_http&quot; value=&quot;The address of the receiving web service&quot;&gt;
+Name &lt;input name=&quot;name&quot;&gt;
+&lt;button id=&quot;submitButton&quot; type=&quot;button&quot;&gt;Submit&lt;/button&gt;
 &lt;/form&gt;
 &lt;script src=&quot;//form2channel.com/js/form2channel.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
@@ -69,35 +50,7 @@ submitButton.addEventListener(&quot;click&quot;, function(){
     }
 }, false);
 &lt;/script&gt;
-</pre>
-<script src="//form2channel.com/js/form2channel.js"></script>
-<script>
-    //Getting the submitButton
-    const submitButton = document.getElementById("submitButton");
-    
-    //Adding the submitButton click event handler
-    submitButton.addEventListener("click", function(){
-    
-        //Validating the field
-        if (document.getElementsByName("name")[0].value === "") {
-            alert("Enter a name");
-        } else {
-            //The form submission call
-            //You can pass any form into this function
-            form2channel(document.forms[0])
-            .then(data => {
-    
-                //The service returns a Json object that consists of:
-                //A message: data.Message
-                //A success boolean: data.Success
-                console.log(data.Message);
-            })
-            .catch((error) => {
-                //Catching the error
-                console.log(error);
-            });
-        }
-    }, false);
-</script>
-</body>
+</pre
+    >
+  </body>
 </html>

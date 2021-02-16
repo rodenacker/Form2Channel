@@ -22,89 +22,48 @@
 <div class="wrapper">
     <div class="leftgutter"></div>
     <div class="content">
-        <div class="contentcontainer">
-            <div class="built-with-linx"><a href="https://linx.software" target="_blank"><img src="images/built-with-linx.svg"></a></div>
-            <h1 class="title">Form2Channel</h1>
-            <p class="hero">
-                Get HTML form submissions in Google Sheets, Email, Slack or Telegram for free
-            </p>
-            <h3>How it works</h3>
-            <ol>
-                <li>Add a custom html form on your website</li>
-                <li>Users complete and submit the form</li>
-                <li>Form2Channel sends the form info to you</li>
-            </ol>
-            <div id="diagram"></div>
-            <h3>Why use Form2Channel?</h3>
-            <ul class="ticks">
-                <li>Completely free</li>
-                <li>Super easy to set up</li>
-                <li>Works on static websites</li>
-                <li>No coding required</li>
-                <li>Support for 5 channels</li>
-            </ul>
-            <div class="channelswrapper">
-                <div class="channels">
-                    <div><img src="images/google-sheets.svg">Google Sheets</div>
-                    <div><img src="images/email.svg">Email</div>
-                    <div><img src="images/slack.svg">Slack</div>
-                    <div><img src="images/telegram.svg">Telegram</div>
-                    <div><img src="images/http.svg">Http</div>
+        <div class="built-with-linx"><a href="https://linx.software" target="_blank"><img src="images/built-with-linx.svg"></a></div>
+        <p class="hero">
+            HTML forms to Google Sheets, Email, Slack or Telegram - for free
+        </p>
+        <div class="contentwrapper">
+            <div class="contentcontainer">
+                <h3>Why use Form2Channel?</h3>
+                <ul class="ticks">
+                    <li>Super <a href="docs.html">easy to set up</a></li>
+                    <li>Works on static websites</li>
+                    <li>No coding required</li>
+                    <li>Support for 5 channels</li>
+                    <li>Completely free</li>
+                </ul>
+                <h3>How it works</h3>
+                <ol>
+                    <li>Add a <a href="sample.html" target="_blank">custom html form</a> on your website</li>
+                    <li>Include a link to our <a href="js/form2channel.js" target="_blank">js file</a></li>
+                    <li>Users complete and submit the form</li>
+                    <li>Form2Channel sends the form info to you</li>
+                </ol>
+                <h3>Post directly to our REST API</h3>
+                    <p>You can also post directly to the Form2Channel REST API<br>Check out the <a href="docs.html#apidirect">API documentation</a></p>
+                <h3>What is Linx?</h3>
+                <ul class="ticks">
+                    <li>Low-code backend IDE and Server</li>
+                    <li>Build & host web services, automations & integrations</li>
+                    <li>Made by developers, for developers</li>
+                </ul>
+                <p>Try <a href="https://linx.software" target="_blank">Linx</a></p>
+            </div>
+            <div class="contentcontainer">
+                <div id="diagram"></div>
+                <div id="channelswrapper">
+                    <div class="channels">
+                        <div><img src="images/google-sheets.svg">Google Sheets</div>
+                        <div><img src="images/email.svg">Email</div>
+                        <div><img src="images/slack.svg">Slack</div>
+                        <div><img src="images/telegram.svg">Telegram</div>
+                        <div><img src="images/http.svg">Http</div>
+                    </div>
                 </div>
-            </div>
-            <h3>Post directly to our REST API</h3>
-                <p>Skip the form and Post Json directly to the Form2Channel REST API<br>Check out the <a href="docs.html#apidirect">API documentation</a></p>
-            <h3>What is Linx?</h3>
-            <ul class="ticks">
-                <li>Low-code backend IDE and Server</li>
-                <li>Build & host web services, automations & integrations</li>
-                <li>Made by developers, for developers</li>
-            </ul>
-            <p>Try <a href="https://linx.software" target="_blank">Linx</a></p>
-        </div>
-    </div>
-    <div class="sidebar">
-        <div class="forms">
-            <div id="signupfrmwrapper" class="landingformwrapper">
-                <form id="signupfrm" name="signupfrm">
-                    <h2>Sign up</h2>
-                    <div class="formField">
-                        <span>Name</span>
-                        <input name="name">
-                    </div>
-                    <div class="formField">
-                        <span>Email</span>
-                        <input name="email">
-                    </div>
-                    <div class="formField">
-                        <span>Password</span>
-                        <input name="password" type="password">
-                    </div>
-                    <div class="formField">
-                        <span>Confirm Password</span>
-                        <input name="passwordconfirm" type="password">
-                    </div>
-                    <button type="submit" id="signupbutton">Sign up</button>
-                    <span id="regMessage" class="errorMsg"></span>
-                </form>
-            </div>
-            <div id="loginfrmwrapper" class="landingformwrapper">
-                <form id="loginfrm" name="loginfrm">
-                <h2>Log in</h2>
-                    <div class="formField">
-                        <span>Email</span>
-                        <input name="loginemail" class="loginemail">
-                        <span id="loginemail_error"></span>
-                    </div>
-                    <div class="formField">
-                        <span>Password</span>
-                        <input name="loginpassword" type="password">
-                        <span id="loginpassword_error"></span>
-                    </div>
-                    <button type="submit">Log in</button>
-                    <span id="login_error" class="errorMsg"></span>
-                    <div class="link" id="forgotpassword">reset password</div>
-                </form>
             </div>
         </div>
     </div>
@@ -120,78 +79,6 @@
 </div>
 <script src="js/index.js?v=2"></script>
 <script>
-document.getElementById("loginfrm").addEventListener("submit", function(e){
-    e.preventDefault();
-    const email = document.getElementsByName("loginemail")[0];
-    const password = document.getElementsByName("loginpassword")[0];
-    if ((email.value !== "") && (password.value !== "")) {
-        const el = this;
-        showLoader(el);
-        postData(linxapi + "login", {"Email": email.value, "Password": password.value})
-            .then(data => {
-                if (!data.Status) {
-                    showMessageBar(data.Message);
-                    removeLoader(el);
-                } else if (data.Status) {
-                    window.location.href="pages.html?token=" + data.Token;
-                }
-            })
-            .catch((error) => {
-                console.log(error)
-                showMessageBar(error);
-                removeLoader(el);
-            });
-    } else {
-        document.getElementById("login_error").innerHTML = "Enter an email and a password to log in";
-    }
-});
-document.getElementById("signupfrm").addEventListener("submit", function(e){
-    e.preventDefault();
-    resetValidations();
-    if (document.getElementsByName("name")[0].value === "") {
-        document.getElementById("regMessage").innerHTML = "Please provide a name";
-        document.getElementsByName("name")[0].classList.add("fieldError");
-    } else if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(document.getElementsByName("email")[0].value) === false) {
-        document.getElementById("regMessage").innerHTML = "The email is not valid";
-        document.getElementsByName("email")[0].classList.add("fieldError");
-    } else if (document.getElementsByName("password")[0].value !== document.getElementsByName("passwordconfirm")[0].value) {
-        document.getElementById("regMessage").innerHTML = "The passwords do not match";
-        document.getElementsByName("password")[0].classList.add("fieldError");
-        document.getElementsByName("passwordconfirm")[0].classList.add("fieldError");
-    } else {
-        const el = this;
-        showLoader(el);
-        postData(linxapi + "signupuser", {"name": document.getElementsByName("name")[0].value, "email": document.getElementsByName("email")[0].value, "password": document.getElementsByName("password")[0].value})
-            .then(data => {
-                showMessageBar(data.Message);
-                removeLoader(el);
-            })
-            .catch((error) => {
-                console.log(error);
-                showMessageBar(error);
-                removeLoader(el);
-            });
-    }
-});
-document.getElementById("forgotpassword").addEventListener("click", function(){
-    if (document.getElementsByName("loginemail")[0].value !== "") {
-        const el = this;
-        showLoader(el);
-        postData(linxapi + "forgotpassword", {"email": document.getElementsByName("loginemail")[0].value})
-        .then(data => {
-            showMessageBar(data.Message);
-            removeLoader(el);
-        })
-        .catch((error) => {
-            console.log(error)
-            showMessageBar(error);
-            removeLoader(el);
-        });
-    } else {
-        document.getElementById("login_error").innerHTML = "Enter your email address";
-        document.getElementsByName("loginemail")[0].classList.add("fieldError");
-    }
-});
 switchDiagram();
 var counter = 1;
 function switchDiagram() {
@@ -217,7 +104,7 @@ function switchDiagram() {
         setTimeout(function(){
             switchDiagram();
         }, 750);
-    }, 7000);
+    }, 4500);
 }
 </script>
 </body>
