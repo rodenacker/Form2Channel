@@ -17,7 +17,7 @@
     <meta charset="utf-8" />
     <title>Form2Channel - Send your form anywhere</title>
     <link rel="icon" href="images/favicon.svg" type="image/svg" />
-    <meta name="description" content="Send the results of form submissions to a GoogleSheet, an email address, a Slack Channel or a Telegram account. Just host a static form and sign your page up at Form2Channel."/>
+    <meta name="description" content="Send the results of form submissions to GoogleSheets, Email, Slack or Telegram. Just host a static form on your site and include our form2channel js file">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&family=Roboto:wght@300;400;700&family=Arvo&display=swap" rel="stylesheet"/>
@@ -45,7 +45,8 @@
             <hr>
             <h2 id="getstarted">Getting started</h2>
             <ol>
-                <li>Create an html form in your favourite html editor<br>&lt;form class="form2channel"&gt;</li>
+                <li>Create your html form with the class form2channel<br>&lt;form class="form2channel"&gt;</li>
+                <li>Add a submit button<br>&lt;button type="submit"&gt;Submit&lt;/button&gt;</li>
                 <li>Add a link to our JS file on the form page<br>&lt;script src=&quot;//form2channel.com/js/form2channel.js&quot;&gt;&lt;/script&gt;</li>
                 <li>Upload the page to your server</li>
             </ol>
@@ -103,15 +104,13 @@
             <hr>
             <h2 id="apidirect">Post data directly to our REST API</h2>
             <p>You can skip the form altogether and submit your data  directly to our API as a Json object</p>
-            <ol>
-              <li>Call our FormTo API
+            <p>To call our FormTo API</p>
                 <ul>
-                  <li>URI: https://showcase.api.linx.twenty57.net/Form2Channel?PageUrl=[your unique page identifyer]</li>
+                  <li>URI: https://showcase.api.linx.twenty57.net/Form2Channel?PageUrl=[your unique page identifyer]<br><i><small>We use the unique page identifyer to add your submissions to the same GoogleSheet</small></i></li>
                   <li>Method: POST</li>
                   <li>Content Type: application/json</li>
                   <li>Body: Array of key / value pairs as shown below</li>
-                </li>
-              </li>
+                </ul>
         <pre>    [
                 {"key":"formto_email","value":"me@email.address"},
                 {"key":"FirstName","value":"John"},
@@ -120,7 +119,6 @@
                 {"key":"Subscribed","value":"checked"},
                 {"key":"Gender","value":"Male"}
     ]</pre>
-            </ol>
           <hr>
           <br>
         </div>

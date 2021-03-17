@@ -7,7 +7,7 @@ body {
   transition: padding-top 0.5s;
   color: #333333;
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  font-size: clamp(var(16px, 1rem), calc(1rem + var(16px,3vw)), var(2rem, 1.3rem));
   background-color: #f2f2f2;
 }
 
@@ -73,44 +73,8 @@ body {
   grid-row: row 2;
 }
 
-.pages .topbar {
+.topbar {
   padding: 0 4px;
-}
-
-.pages .topbar .logo {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 10px;
-  color: white;
-  font-weight: bold;
-  font-family: "Nunito", sans-serif;
-  font-size: 34px;
-}
-
-.pages .topbar .menu {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  width: 100%;
-  gap: 10px;
-  height: calc(50px + 12px);
-}
-
-.pages .topbar .menu a {
-  color: white;
-  font-size: 12px;
-  text-decoration: none;
-  margin-bottom: 4px;
 }
 
 .pages .content {
@@ -221,11 +185,6 @@ body {
 }
 
 /*content*/
-.title {
-  font-size: 20px;
-  color: #1565c0;
-}
-
 .hero {
   font-size: 40px;
   font-weight: bold;
@@ -387,7 +346,7 @@ button,
 
 .terms {
   font-family: "Roboto Slab", serif;
-  font-size: 16px;
+  font-size: clamp(var(16px, 1rem), calc(1rem + var(16px,3vw)), var(2rem, 1.3rem));
   max-width: 600px;
 }
 
@@ -432,77 +391,6 @@ button,
 
 .contactForm .fieldError {
   border: 2px solid #c41e4a;
-}
-
-#methodInstructions {
-  max-width: 500px;
-}
-
-#methodInstructions .tabs {
-  overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: stretch;
-      -ms-flex-pack: stretch;
-          justify-content: stretch;
-  width: 100%;
-}
-
-#methodInstructions .tab {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  background-color: transparent;
-  border: 0;
-  outline: none;
-  cursor: pointer;
-  padding: 8px;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  color: #0d47a1;
-  text-transform: uppercase;
-  font-size: 12px;
-  border-bottom: 1px solid #0d47a1;
-  min-width: 80px;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  -ms-grid-column-align: center;
-      justify-self: center;
-  text-align: center;
-}
-
-#methodInstructions .tab:hover {
-  background-color: rgba(21, 101, 192, 0.1);
-}
-
-#methodInstructions .tab.active {
-  background-color: #dcdcdc;
-  border-top: 1px solid #0d47a1;
-  border-right: 1px solid #0d47a1;
-  border-left: 1px solid #0d47a1;
-  border-bottom: 0;
-}
-
-#methodInstructions .tabContent {
-  display: none;
-  padding: 20px;
-  background-color: #dcdcdc;
-  font-size: 14px;
-  min-height: 120px;
-  overflow: hidden;
-}
-
-#methodInstructions .tabContent a {
-  color: #0d47a1;
-}
-
-#methodInstructions .tabContent.active {
-  display: block;
-  margin-top: -1px;
 }
 
 /*forms*/
@@ -681,7 +569,7 @@ table th {
   font-weight: bold;
   padding: 4px;
   text-align: left;
-  font-size: 16px;
+  font-size: clamp(var(16px, 1rem), calc(1rem + var(16px,3vw)), var(2rem, 1.3rem));
   color: white;
 }
 
